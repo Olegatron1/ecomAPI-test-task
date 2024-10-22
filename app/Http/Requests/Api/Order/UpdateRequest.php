@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api\Cart;
+namespace App\Http\Requests\Api\Order;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,8 +13,9 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-
-        ];
+		return [
+			'status' => 'required|in:pending,paid,cancelled',
+			'payment_url' => 'nullable|string',
+		];
     }
 }

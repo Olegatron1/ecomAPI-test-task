@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api\Cart;
+namespace App\Http\Requests\Api\PaymentMethod;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,8 +13,9 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+		return [
+			'name' => 'required|string|max:255',
+			'payment_url_template' => 'nullable|string',
+		];
     }
 }
