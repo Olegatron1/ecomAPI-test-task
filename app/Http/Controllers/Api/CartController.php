@@ -92,9 +92,18 @@ class CartController extends Controller
 	{
 		$products = $request->validated()['products'];
 
-		// Вызов метода из сервиса для добавления продуктов в корзину
 		$this->cartService->addProductsToCart($cart, $products);
 
 		return response()->json(['message' => 'Products added to cart successfully.']);
+	}
+
+	/**
+	 * @throws \Exception
+	 */
+	public function destroyProduct(Cart $cart, int $productId): JsonResponse
+	{
+		$this->cartService->destroyProductFromCart($cart, $productId);
+
+		return response()->json(['message' => 'Product removed from cart successfully.']);
 	}
 }

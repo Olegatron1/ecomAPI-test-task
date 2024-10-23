@@ -48,4 +48,14 @@ class CartService
 		$cart->update(['total_price' => $totalPrice]);
 	}
 
+	public function destroyProductFromCart(Cart $cart, int $productId): void
+	{
+		if ($cart->products()->where('product_id', $productId)->exists()) {
+			$cart->products()->detach($productId);
+
+			$this->updateTotalPrice($cart);
+		} else {
+			throw new \Exception('Product not found in the cart.');
+		}
+	}
 }

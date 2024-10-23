@@ -13,6 +13,7 @@ Route::get('/user', function (Request $request) {
 
 Route::apiResource('carts', CartController::class);
 Route::post('/carts/{cart}/products', [CartController::class, 'addProducts']);
+Route::delete('carts/{cart}/products/{product}', [CartController::class, 'destroyProduct']);
 
 Route::apiResource('paymentMethods', PaymentMethodController::class);
 
