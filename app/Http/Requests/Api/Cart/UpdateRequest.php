@@ -14,7 +14,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'total_price' => 'required|integer',
+			'total_price' => 'nullable|integer',
         ];
     }
 }

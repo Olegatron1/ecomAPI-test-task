@@ -12,6 +12,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('carts', CartController::class);
+Route::post('/carts/{cart}/products', [CartController::class, 'addProducts']);
 
 Route::apiResource('paymentMethods', PaymentMethodController::class);
 

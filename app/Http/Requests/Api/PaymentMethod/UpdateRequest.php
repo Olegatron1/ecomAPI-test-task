@@ -14,8 +14,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
 		return [
-			'name' => 'required|string|max:255',
-			'payment_url_template' => 'nullable|string',
+			'name' => 'required|in:paypal,payment,mirpay',
 		];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Cart\AddProductsRequest;
 use App\Http\Requests\Api\Cart\StoreRequest;
 use App\Http\Requests\Api\Cart\UpdateRequest;
 use App\Http\Resources\Cart\CartResource;
@@ -86,4 +87,14 @@ class CartController extends Controller
 			'message' => 'Cart deleted successfully'
 		]);
     }
+
+	public function addProducts(AddProductsRequest $request, Cart $cart): JsonResponse
+	{
+		$products = $request->validated()['products'];
+
+		// Вызов метода из сервиса для добавления продуктов в корзину
+		$this->cartService->addProductsToCart($cart, $products);
+
+		return response()->json(['message' => 'Products added to cart successfully.']);
+	}
 }

@@ -14,11 +14,9 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'status' => 'required|in:pending,paid,cancelled',
 			'user_id' => 'required|integer',
 			'cart_id' => 'required|integer',
 			'payment_method_id' => 'required|integer',
-			'payment_url' => 'nullable|string',
         ];
     }
 }

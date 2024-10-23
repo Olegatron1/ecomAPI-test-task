@@ -15,7 +15,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'user_id' => 'required|integer',
-            'total_price' => 'required|integer',
         ];
     }
 }
