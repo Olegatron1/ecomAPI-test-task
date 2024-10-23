@@ -13,10 +13,10 @@ class StoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-			'user_id' => 'required|integer',
-			'cart_id' => 'required|integer',
-			'payment_method_id' => 'required|integer',
-        ];
+		return [
+			'cart_id' => 'required|exists:carts,id',
+			'user_id' => 'required|exists:users,id',
+			'payment_method_id' => 'required|exists:payment_methods,id',
+		];
     }
 }

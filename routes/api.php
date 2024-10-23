@@ -20,3 +20,4 @@ Route::apiResource('paymentMethods', PaymentMethodController::class);
 Route::apiResource('products', ProductController::class);
 
 Route::apiResource('orders', OrderController::class);
+Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus']);
