@@ -58,3 +58,7 @@ REST API:
 ### Миграция базы данных
 
 - php artisan migrate
+
+### Импортировать себе в Postman
+ 
+- [EcomAPI.postman_collection.json](EcomAPI.postman_collection.json)
