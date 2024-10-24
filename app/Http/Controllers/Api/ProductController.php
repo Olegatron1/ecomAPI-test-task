@@ -9,6 +9,7 @@ use App\Http\Resources\Product\ProductResource;
 use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ProductController extends Controller
@@ -23,9 +24,13 @@ class ProductController extends Controller
 	/**
      * Display a listing of the resource.
      */
-    public function index(): AnonymousResourceCollection
+    public function index(Request $request): AnonymousResourceCollection
 	{
-		return ProductResource::collection(Product::all());
+		$sortBy = $request->query('sort', 'asc');
+
+		$products = Product::orderBy('price', $sortBy)->get();
+
+		return ProductResource::collection($products);
     }
 
     /**

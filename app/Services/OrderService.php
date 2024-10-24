@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Jobs\CheckOrderStatus;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\PaymentMethod;
@@ -27,11 +28,11 @@ class OrderService
 
 			$order = Order::create($data);
 
+			CheckOrderStatus::dispatch($order->id)->delay(now()->addMinutes(2));
+
 			$order->cart_id = null;
 			$order->save();
-
 			$cart->products()->detach();
-
 			$this->deleteCart($cart);
 
 			return $order;
