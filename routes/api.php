@@ -27,3 +27,4 @@ Route::apiResource('products', ProductController::class);
 
 Route::apiResource('orders', OrderController::class);
 Route::patch('/orders/{order}/pay', [OrderController::class, 'markAsPaid']);
+Route::middleware('auth:sanctum')->get('/user/orders', [OrderController::class, 'userOrders']);

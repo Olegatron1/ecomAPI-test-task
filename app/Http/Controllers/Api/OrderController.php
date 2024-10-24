@@ -10,6 +10,7 @@ use App\Http\Resources\Order\OrderResource;
 use App\Models\Order;
 use App\Services\OrderService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class OrderController extends Controller
@@ -24,10 +25,14 @@ class OrderController extends Controller
 	/**
      * Display a listing of the resource.
      */
-    public function index(): AnonymousResourceCollection
+	public function index(): AnonymousResourceCollection
 	{
-		return OrderResource::collection(Order::all());
-    }
+		$query = Order::query();
+
+		$orders = $query->orderBy('created_at', 'desc')->get();
+
+		return OrderResource::collection($orders);
+	}
 
     /**
      * Show the form for creating a new resource.
@@ -93,6 +98,12 @@ class OrderController extends Controller
 			'message' => 'Order marked as paid successfully.',
 			'order' => $order
 		], 200);
+	}
+
+	public function userOrders(Request $request): AnonymousResourceCollection
+	{
+		$orders = $request->user()->orders()->with('paymentMethod')->get();
+		return OrderResource::collection($orders);
 	}
 
 }
