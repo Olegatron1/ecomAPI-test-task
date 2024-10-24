@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Order\MarkAsPaidRequest;
 use App\Http\Requests\Api\Order\StoreRequest;
 use App\Http\Requests\Api\Order\UpdateRequest;
 use App\Http\Resources\Order\OrderResource;
@@ -83,4 +84,15 @@ class OrderController extends Controller
 
 		return response()->json(['message' => 'Order deleted']);
     }
+
+	public function markAsPaid(Order $order, MarkAsPaidRequest $request): JsonResponse
+	{
+		$order->update(['status' => $request->validated()['status']]);
+
+		return response()->json([
+			'message' => 'Order marked as paid successfully.',
+			'order' => $order
+		], 200);
+	}
+
 }
