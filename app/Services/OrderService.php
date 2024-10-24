@@ -16,17 +16,28 @@ class OrderService
 		$paymentMethod = PaymentMethod::find($data['payment_method_id']);
 
 		if ($paymentMethod && $cart && $user) {
-			$totalPrice = $cart->total_price; // Получаем общую стоимость из корзины
-			$email = $user->email; // Извлекаем email пользователя
+			$totalPrice = $cart->total_price;
+			$email = $user->email;
 
 			$data['payment_url'] = $this->generatePaymentUrl(
 				$paymentMethod->payment_url_template,
 				$totalPrice,
 				$email
 			);
+
+			$order = Order::create($data);
+
+			$order->cart_id = null;
+			$order->save();
+
+			$cart->products()->detach();
+
+			$this->deleteCart($cart);
+
+			return $order;
 		}
 
-		return Order::create($data);
+		throw new \Exception('Invalid payment method, cart, or user.');
 	}
 
 	protected function generatePaymentUrl(string $template, float $totalPrice, string $email): string
@@ -44,4 +55,12 @@ class OrderService
 	{
 		$order->delete();
 	}
+
+	public function deleteCart(Cart $cart): void
+	{
+		$cart->products()->detach();
+
+		$cart->delete();
+	}
+
 }

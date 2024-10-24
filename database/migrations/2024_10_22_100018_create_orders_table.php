@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 			$table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending');
-			$table->foreignId('user_id')->constrained('users');
-			$table->foreignId('cart_id')->constrained('carts');
-			$table->foreignId('payment_method_id')->constrained('payment_methods');
+			$table->foreignId('user_id')->index()->constrained('users');
+			$table->foreignId('cart_id')->index()->nullable()->constrained('carts');
+			$table->foreignId('payment_method_id')->index()->constrained('payment_methods');
 			$table->string('payment_url')->nullable();
             $table->timestamps();
         });
