@@ -11,11 +11,23 @@
 			"item": [
 				{
 					"name": "Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts",
+							"raw": "http://127.0.0.1:8000/api/carts",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -26,7 +38,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts"
+								"carts"
 							]
 						}
 					},
@@ -38,7 +50,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/2",
+							"raw": "http://127.0.0.1:8000/api/carts/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -49,8 +61,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"2"
+								"carts",
+								"1"
 							]
 						}
 					},
@@ -63,7 +75,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"price_total\": 412,\n    \"user_id\": 1\n}",
+							"raw": "{\n    \"user_id\": 4\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,7 +107,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"price_total\": 412,\n    \"user_id\": 1\n}",
+							"raw": "{\n    \"products\": [\n        {\"id\": 1 , \"quantity\": 31}\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -103,7 +115,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/carts",
+							"raw": "http://127.0.0.1:8000/api/carts/6/products",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -114,7 +126,9 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"carts"
+								"carts",
+								"6",
+								"products"
 							]
 						}
 					},
@@ -127,7 +141,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda edited\",\n    \"content\": \"hui hui hui edited\",\n    \"description\": \"bla bla bla edited\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"total_price\": 123123123\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -135,7 +149,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/carts/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -146,8 +160,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"carts",
+								"2"
 							]
 						}
 					},
@@ -160,7 +174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda\",\n    \"content\": \"hui hui hui\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"title\": \"jjaaa jjaaa\",\n    \"content\": \"bbb bbb\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -168,7 +182,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/carts/7",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -179,8 +193,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"carts",
+								"7"
 							]
 						}
 					},
@@ -193,7 +207,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda\",\n    \"content\": \"hui hui hui\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"title\": \"jjaaa jjaaa\",\n    \"content\": \"jjj jjj jjj\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -201,7 +215,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/carts/1/products/8",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -212,8 +226,10 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"carts",
+								"1",
+								"products",
+								"8"
 							]
 						}
 					},
@@ -229,6 +245,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Oleg\",\n  \"email\": \"oleg@example.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/register",
 							"protocol": "http",
@@ -250,10 +275,29 @@
 				{
 					"name": "Logout",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "12|MhnpeQon9hoFPdRzE8hZ3EXSZx7CjKDSPp5RyD4Iac573616",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"example@example.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
+							"raw": "http://127.0.0.1:8000/api/logout",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -264,7 +308,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"logout"
 							]
 						}
 					},
@@ -273,10 +317,34 @@
 				{
 					"name": "Login",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "ol@example.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"oleg@example.com\",\n  \"password\": \"password\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/register",
+							"raw": "http://127.0.0.1:8000/api/login",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -287,7 +355,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"register"
+								"login"
 							]
 						}
 					},
@@ -296,6 +364,16 @@
 				{
 					"name": "Show",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "18|Rcf0x5hBLm5zYtmBgpO51iGEO95swgoqNursVUVle50b5382",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -327,7 +405,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts",
+							"raw": "http://127.0.0.1:8000/api/orders",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -338,7 +416,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts"
+								"orders"
 							]
 						}
 					},
@@ -350,7 +428,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/2",
+							"raw": "http://127.0.0.1:8000/api/orders/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -361,8 +439,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"2"
+								"orders",
+								"1"
 							]
 						}
 					},
@@ -375,7 +453,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"price_total\": 412,\n    \"user_id\": 1\n}",
+							"raw": "{\n    \"cart_id\": 13,\n    \"user_id\": 2,\n    \"payment_method_id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -383,7 +461,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/carts",
+							"raw": "http://127.0.0.1:8000/api/orders",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -394,7 +472,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"carts"
+								"orders"
 							]
 						}
 					},
@@ -407,7 +485,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda edited\",\n    \"content\": \"hui hui hui edited\",\n    \"description\": \"bla bla bla edited\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"status\": \"paid\",\n    \"user_id\": 1,\n    \"cart_id\": 3,\n    \"payment_method_id\": 2,\n    \"payment_url\": \"dasdsa\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -415,7 +493,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/orders/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -426,8 +504,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"orders",
+								"4"
 							]
 						}
 					},
@@ -440,7 +518,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda edited\",\n    \"content\": \"hui hui hui edited\",\n    \"description\": \"bla bla bla edited\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"status\": \"paid\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -448,7 +526,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/orders/3/pay",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -459,8 +537,9 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"orders",
+								"3",
+								"pay"
 							]
 						}
 					},
@@ -473,7 +552,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda\",\n    \"content\": \"hui hui hui\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"title\": \"jjaaa jjaaa\",\n    \"content\": \"jjj jjj jjj\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -481,7 +560,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/orders/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -492,8 +571,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"orders",
+								"4"
 							]
 						}
 					},
@@ -510,7 +589,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts",
+							"raw": "http://127.0.0.1:8000/api/products",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -521,7 +600,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts"
+								"products"
 							]
 						}
 					},
@@ -533,7 +612,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/2",
+							"raw": "http://127.0.0.1:8000/api/products/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -544,8 +623,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"2"
+								"products",
+								"1"
 							]
 						}
 					},
@@ -558,7 +637,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"price_total\": 412,\n    \"user_id\": 1\n}",
+							"raw": "{\n    \"name\": \"qwe\",\n    \"price\": 123,\n    \"description\": \"qweqwe\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -566,7 +645,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/carts",
+							"raw": "http://127.0.0.1:8000/api/products",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -577,7 +656,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"carts"
+								"products"
 							]
 						}
 					},
@@ -590,7 +669,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda edited\",\n    \"content\": \"hui hui hui edited\",\n    \"description\": \"bla bla bla edited\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"name\": \"sadasd\",\n    \"price\": 123,\n    \"description\": \"qwqsa\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -598,7 +677,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/products/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -609,8 +688,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"products",
+								"1"
 							]
 						}
 					},
@@ -623,7 +702,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda\",\n    \"content\": \"hui hui hui\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"title\": \"jjaaa jjaaa\",\n    \"content\": \"jjj jjj jjj\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -631,7 +710,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/products/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -642,8 +721,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"products",
+								"1"
 							]
 						}
 					},
@@ -683,7 +762,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/2",
+							"raw": "http://127.0.0.1:8000/api/paymentMethods/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -694,8 +773,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"2"
+								"paymentMethods",
+								"1"
 							]
 						}
 					},
@@ -740,7 +819,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda edited\",\n    \"content\": \"hui hui hui edited\",\n    \"description\": \"bla bla bla edited\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"name\": \"mirpay\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -748,7 +827,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/paymentMethods/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -759,8 +838,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"paymentMethods",
+								"4"
 							]
 						}
 					},
@@ -773,7 +852,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"pizda pizda\",\n    \"content\": \"hui hui hui\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
+							"raw": "{\n    \"title\": \"jjaaa jjaaa\",\n    \"content\": \"jjj jjj jjj\",\n    \"description\": \"bla bla bla\",\n    \"category_id\": 2,\n    \"author_id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -781,7 +860,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/9",
+							"raw": "http://127.0.0.1:8000/api/paymentMethods/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -792,8 +871,8 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"posts",
-								"9"
+								"paymentMethods",
+								"1"
 							]
 						}
 					},
